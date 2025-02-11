@@ -6,7 +6,7 @@
     scroll-behavior: smooth;
 }
 body{
-    background-color: black;
+    background-color:#111827;
     /* background-image: url('../assets/img/background.jpg'); */
     background-position: center ;
     background-size: cover;
@@ -49,6 +49,7 @@ nav ul a {
     text-decoration: none ;
     color: white;
     font-size: 1rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     
     
 }  
@@ -82,7 +83,7 @@ header{
 /* -----burger menu----- */
 .burger{
    display: none;
-   /* height: 0 ; */
+   height: 0 ;
    position: absolute;
    right: 2rem;
    top: 60px;
@@ -101,6 +102,8 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
 }
 /*-------- Responsive-------- */
 @media (max-width:990px){
@@ -121,8 +124,11 @@ header{
 
 
 #accueil {
-    height: 100vh; /* La section prendra 100% de la hauteur de la fenêtre */
+    height: auto; /* La section prendra 100% de la hauteur de la fenêtre */
+    padding: 20px; /* Ajoute du padding pour l'espace */
+
     display: flex; /* Centrage du contenu */
+    flex-direction: column; /* Centrage du contenu */
     justify-content: center;
     align-items: center;
     text-align: center; /* Si nécessaire */
@@ -131,7 +137,7 @@ header{
 }
 
 #accueil p {
-    color: white;
+    color:white;
     
     line-height: 1.8;
     
@@ -139,43 +145,76 @@ header{
 }
 
 
-#propos , #competences,#accueil,#contact,#projet
+#propos , #competences,#accueil,#contact,#projet,#erreur
 {
-    height: 100vh;/* La section prendra 100% de la hauteur de la fenêtre */
+    min-height: 100vh; /* S'adapte au contenu */
+    padding: 5rem 2rem; /* Ajoute de l'espacement pour éviter les superpositions */
+    box-sizing: border-box;    
+}
+section {
+    margin-bottom: 5rem; /* Ajoute un espacement entre chaque section */
     
 }
 #sensation{
     display: flex;
     flex-direction: column;
     color: #009fe3;
+    max-width: 100%; /* S'adapte à la largeur de l'écran */
+
     
 }
 #sensation h1{
-    margin-bottom: 20px;
+    margin-bottom: 70px;
+    font-size:40px;
+    
     
 }
 #sensation p{
     margin-bottom: 20px;
 }
+.sensation-content {
+    display: flex;
+    align-items: center;  /* Centre les éléments verticalement */
+    justify-content: space-between; /* Sépare le texte et l’image */
+    gap: 30px; /* Ajoute un espace entre l'image et le texte */
+}
+
+.sensation-text {
+    flex: 1; /* Le texte prend tout l’espace disponible */
+    text-align: left; /* Aligne le texte à gauche */
+}
+
+.sensation-text p {
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+}
 
 .bitmoji{
-    font-size: 10rem;
+    
+    flex-shrink: 0; /* Empêche l’image de rétrécir */
+
 }
 .bitmoji img {
     border-radius: 50%;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); Ajoute une ombre douce
+    width: 250px; /* Ajuste la taille de l’image */
+    height: auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 
-}
+};
   h1{
     font-size: 3rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
     
   }
   h2{
     font-size: 2rem;
     color: #009fe3;
     margin-bottom:100px ;
-    text-align: center
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
   };
 .welcomee {
     
@@ -186,9 +225,11 @@ header{
   }
   
   #propos {
+    max-height: 400px; /* Limite la hauteur de la section */
+    overflow-y: auto; /* Ajoute un défilement vertical si le contenu dépasse */
     background-color: #121212; /* Fond sombre */
     color: #e6e6e6; /* Texte clair */
-    padding: 4rem 2rem; /* Espacement interne */
+    padding: 20px; /* Espacement interne */
     text-align: center;
     height: 100vh;
   }
@@ -223,85 +264,151 @@ header{
     line-height: 1.6; /* Espacement entre les lignes */
 
 }
-
-#competences h2{
-    margin-top: 20px;
+.about-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
-#competences h3{
-    font-size: 30px;
-    margin-bottom: 1rem;
+@media (max-width: 768px) {
+    #propos {
+        max-height: 300px; /* Réduit la hauteur sur les petits écrans */
+    }
+}
+
+#competences {
     text-align: center;
 }
-#competences img{
-    border-radius:15px;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+/* Titre principal */
+#competences h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #009fe3;
 }
 
+/* Conteneur des compétences */
+.competences-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajustable pour les écrans */
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-#projet{
+/* Bloc individuel de compétence */
+.competence {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+
+/* Animation au survol */
+.competence:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 15px rgba(0, 159, 227, 0.4);
+}
+
+/* Titres */
+.competence h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #009fe3;
+}
+
+/* Paragraphe */
+.competence p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Conteneur des logos */
+.logos {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Logos */
+.logos img {
+    width: 70px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Effet au survol des logos */
+.logos img:hover {
+    transform: scale(1.1);
+}
+#projet {
     overflow: hidden;
     background-color: #121212;
+    padding: 2rem;
+    text-align: center;
+}
+
+  
+/* Conteneur des projets */
+.projet-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.5rem;
+    flex-wrap: wrap; /* Permet aux éléments de s’adapter */
+}
+
+/* Carte Projet */
+.projet {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    padding: 1.5rem;
+    width: 30%; /* 3 projets par ligne */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-    
-
-
-.projet-container {
-    display: flex; /* Flexbox pour aligner les projets */
-    
-    justify-content: space-between; /* Espacement égal entre les projets */
-    align-items: center;
-    gap: 1rem; /* Espacement horizontal entre les éléments */
-    /* flex-wrap: wrap; */
-
-  }
-  .projet {
-    background-color: #1e1e1e; /* Fond des projets */
-    border-radius: 8px; /* Coins arrondis */
-    padding: 1.5rem; /* Espacement interne */
-    width: 30%; /* Largeur des cartes */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère */
-  }
-  
-
 
 .projet img {
-   /* width: 100%;  Prendre toute la largeur disponible */
-    border-radius: 8px; /* Coins arrondis */
-    margin-bottom: 1rem; /* Espacement sous l'image */
+    width: 100%; /* Prend toute la largeur */
+    border-radius: 8px;
+    margin-bottom: 1rem;
 }
+
 .projet h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
+    color: white;
 }
+
 .projet p {
     font-size: 1rem;
-    color: #b0b0b0; /* Couleur grise pour le texte */
-  }
-  @media (max-width: 768px) {
-    .projets-container {
-      flex-direction: column; /* Empiler les projets en colonne */
-      gap: 2rem; /* Espacement plus grand entre les éléments */
-    }
-  
+    color: #b0b0b0;
+}
+
+/* Effet au survol */
+.projet:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* RESPONSIVE : Mobile (Tablettes et smartphones) */
+@media (max-width: 1024px) {
     .projet {
-      width: 100%; /* Prendre toute la largeur */
+        width: 45%; /* Deux projets par ligne */
     }
-  }
+}
 
-.glob {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 100px;
+@media (max-width: 768px) {
+    .projet-container {
+        flex-direction: column; /* Passage en colonne */
+        align-items: center;
+    }
 
+    .projet {
+        width: 90%; /* Prend presque toute la largeur */
+    }
+}
 
-    
-
-  }
-  
 
  
 #contact h3{
@@ -319,59 +426,84 @@ header{
 
 
 }
-#formulaire{
-        display: flex;
-        justify-content: center; /* Centre horizontalement */
-        align-items: center; /* Centre verticalement */    
+#formulaire {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh;
+   
 }
 
-  form {
-    background-color: #009fe3;
-    border: 2px solid rgba(255,255, 255, 0.2);
-    border-radius: 20px;
-    padding: 20px;
-    width: 400%;
+form {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    width: 100%;
     max-width: 400px;
+    color: white;
+    text-align: center;
+}
+
+h3 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+label {
+    display: block;
+    text-align: left;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
     border-radius: 25px;
-    backdrop-filter: blur(20px);
-    color: white;
-
-  }
-  input{
-    width: 200px;
-    padding: 15px;
-    border-radius: 25px ;
     outline: none;
-    background: transparent;
-    border: 2px solid (255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
-    padding-right: 40px;
-    margin-bottom: 50px;
-    margin-left:10px ;
-  }
-  input::placeholder{
-    color: white;
-  }
-
-  button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 15px;
     font-size: 16px;
+}
+
+input::placeholder, 
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+textarea {
+    min-height: 100px;
+    resize: none;
+}
+
+button {
+    display: block;
+    width: 100%;
+    background-color: #009fe3;
+    color: #333;
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
-    border-radius:25px ;
-  }
+    border-radius: 25px;
+    transition: 0.3s;
+}
 
 button:hover {
-    background-color: #45a049;
-  }
+    background-color: green;
+}
 
 
 footer{
-    background-color: #121212; /* Fond sombre */
+    background-color: #111827; /* Fond sombre */
     text-align: center;
 }
-  
 
-  
+

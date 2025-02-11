@@ -1,0 +1,14 @@
+#erreur {
+    text-align: center;
+    background-color: #009fe3;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ccc;
+}
+
+#erreur h1 {
+    font-size: 3rem;
+    color: #ff4d4d;
+    margin-bottom: 20px;
+}
